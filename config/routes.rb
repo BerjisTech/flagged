@@ -1,8 +1,7 @@
-Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+# frozen_string_literal: true
 
-  # Defines the root path route ("/")
-  root "home#index"
+Rails.application.routes.draw do
+  root 'home#index'
 
   devise_for :users, controllers: {
     sessions: 'users/sessions',
@@ -27,8 +26,12 @@ Rails.application.routes.draw do
     get 'register', to: 'users/registrations#new', as: :register
     get 'secret', to: 'users/passwords#new', as: :secret
     get 'verification', to: 'users/confirmations#new', as: :verification
-    # get 'confirmation', to: 'users/confirmations#new', as: :confirmation
-    # get 'unblock', to: 'users/unlocks#new', as: :unblock
+    get 'unblock', to: 'users/unlocks#new', as: :unblock
     get 'omniauth_callbacks', to: 'users/omniauth_callbacks#new', as: :omniauth_callbacks
   end
+
+  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+
+  # Defines the root path route ("/")
+  # root "articles#index"
 end

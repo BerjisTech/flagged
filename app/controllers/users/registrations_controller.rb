@@ -61,7 +61,6 @@ module Users
     #   super(resource)
     # end
 
-
     # Update password if provider is google
     # check for better code
     # def update_resource(resource, params)

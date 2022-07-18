@@ -25,6 +25,11 @@
   resolved "https://registry.yarnpkg.com/@rails/actioncable/-/actioncable-7.0.3.tgz#71f08e958883af64f6a20489318b5e95d2c6dc5b"
   integrity sha512-Iefl21FZD+ck1di6xSHMYzSzRiNJTHV4NrAzCfDfqc/wPz4xncrP8f2/fJ+2jzwKIaDn76UVMsALh7R5OzsF8Q==
 
+bootstrap@^5.2.0-beta1:
+  version "5.2.0-beta1"
+  resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-5.2.0-beta1.tgz#75647ff7327c2cac9b8e1cb6728a790a5be4cefc"
+  integrity sha512-6qbgs177WZEFY4SLQUq3tEHayYG80nfDmyTpdKi0MJqRMdS+HAoq24+YKfx6wf+nHY0rx8zrh477J1lFu4WzOA==
+
 esbuild-android-64@0.14.49:
   version "0.14.49"
   resolved "https://registry.yarnpkg.com/esbuild-android-64/-/esbuild-android-64-0.14.49.tgz#9e4682c36dcf6e7b71b73d2a3723a96e0fdc5054"

@@ -14,7 +14,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '614bb1395db2c815823d1d88a95c9c54db281e16fb96381ff2177edf3f9b36b68f7e9ed96794b11da99e63fcead48396369f243ede788a493f7920ec666a849a'
+  # config.secret_key = 'bf0fe8d2f0fa1ed7ad53455b393679d5f2ceef2e7133341f9e386a9ed3e001e18a0dc5d22a851701fccf9c919287a1cdb987861eb2a69f14a44bc3babbf5d9d6'
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -126,7 +126,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 12
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = '3bf5a4399cf1fb677aedec94fccd0ec41bc9152c4f839e1ce24a6d744307723dfc8d1db384bd7f02feaab431e9c836b9169eb9428663fda88043e7e081def714'
+  # config.pepper = 'b3f9882013f2e64969d8129670e67fc9149a473389d637b78d14facd3add7597312cc9b9ef57efe803c0b8c87ccf050226af2aa1976b9f7b7f2847896a57ec55'
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
@@ -195,9 +195,11 @@ Devise.setup do |config|
   # :failed_attempts = Locks an account after a number of failed attempts to sign in.
   # :none            = No lock strategy. You should handle locking by yourself.
   # config.lock_strategy = :failed_attempts
+  config.lock_strategy = :failed_attempts
 
   # Defines which key will be used when locking and unlocking an account
   # config.unlock_keys = [:email]
+  config.unlock_keys = [:email]
 
   # Defines which strategy will be used to unlock an account.
   # :email = Sends an unlock link to the user email
@@ -205,21 +207,26 @@ Devise.setup do |config|
   # :both  = Enables both strategies
   # :none  = No unlock strategy. You should handle unlocking by yourself.
   # config.unlock_strategy = :both
+  config.unlock_strategy = :both
 
   # Number of authentication tries before locking an account if lock_strategy
   # is failed attempts.
   # config.maximum_attempts = 20
+  config.maximum_attempts = 5
 
   # Time interval to unlock the account if :time is enabled as unlock_strategy.
   # config.unlock_in = 1.hour
+  config.unlock_in = 30.minutes
 
   # Warn on the last attempt before the account is locked.
   # config.last_attempt_warning = true
+  config.last_attempt_warning = true
 
   # ==> Configuration for :recoverable
   #
   # Defines which key will be used when recovering the password for an account
   # config.reset_password_keys = [:email]
+  config.reset_password_keys = [:email]
 
   # Time interval you can reset your password with a reset password key.
   # Don't put a too small interval or your users won't have the time to
@@ -272,10 +279,9 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
-
   config.omniauth :google_oauth2,
-    Rails.application.credentials.dig(:google_oauth_client_id),
-    Rails.application.credentials.dig(:google_oauth_client_secret)
+                  Rails.application.credentials[:google_oauth_client_id],
+                  Rails.application.credentials[:google_oauth_client_secret]
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
