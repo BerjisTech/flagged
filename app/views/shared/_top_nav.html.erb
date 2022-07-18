@@ -7,7 +7,9 @@
       <div>
         <div class="d-flex align-items-center justify-content-center">
           <span class="material-icons">search</span>
-          <span class="btn btn-warning">Add Flag</span>
+          <%- if user_signed_in? %>
+            <span class="btn btn-warning">Add Flag</span>
+          <% end %>
         </div>
       </div>
     </div>
@@ -18,8 +20,12 @@
       <div class="flex-grow-1"></div>
       <div>
         <div class="d-flex align-items-center justify-content-center">
-          <span class="fs-5">Username</span>
-          <%= image_tag "https://cdn.dribbble.com/users/257709/screenshots/10444884/media/066dc44179f85070f7d04dbb8c8cda22.png", class: "me-2", style: "width: 30px; border-radius: 100%;" %>
+          <%- if user_signed_in? %>
+            <span class="fs-5">Username</span>
+            <%= image_tag "https://cdn.dribbble.com/users/257709/screenshots/10444884/media/066dc44179f85070f7d04dbb8c8cda22.png", class: "me-2", style: "width: 30px; border-radius: 100%;" %>
+          <% else %>
+            <%= link_to "Login", login_path, class: "me-3 nav-link" %>
+          <% end %>
         </div>
       </div>
     </div>
